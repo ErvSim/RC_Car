@@ -56,6 +56,10 @@ This project demonstrates an entry-level systems and embedded software engineeri
 
 - 1x 70x90mm perfboard, 2x 20x80mm perfboard
 
+- 10x M2 x 6mm screws
+
+- 4x M3 x 6mm screws
+
 ## Budget Report
 
 
