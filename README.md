@@ -99,7 +99,7 @@ duty = (2000 - xvalue) / 2000.0f * 1796.0f;
 // Reverse
 duty = (xvalue - 2200) / (4095.0f - 2200.0f) * 1796.0f;
 
-// 2000 and 2200 values were deadzones given for neutral based on idle joystick value readings. Due to cheap motors, values are limited to max and min as gears and radio lock out and have to be power cycled.
+// 2000 and 2200 values were deadzones given for neutral based on idle joystick value readings. Due to budget-friendly motors, values are limited to max and min as gears and radio lock out and have to be power cycled.
 
 ## Direction Table
 | **Action** | **X Range** | **Y Range** | **Motor Behavior** |
