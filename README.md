@@ -154,6 +154,3 @@ Problem: RX/TX will ACK only about 3/10 trys and locks out for a couple seconds
 - Raspberry Pi Pico SDK documentation
 
 - nRF24L01+ datasheet and communication protocols
-
-- DRV8833 motor driver datasheet
-
