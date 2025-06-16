@@ -1,6 +1,6 @@
 # RC Car – Embedded Wireless Control System
 ## Project Overview
-This project demonstrates an entry-level systems and embedded software engineering design using two Raspberry Pi Picos. One Pico reads joystick input and wirelessly transmits control signals using the nRF24L01+ radio module. The second Pico receives the data and drives a four-wheel RC car using PWM-controlled motor drivers. Designed with modularity, signal integrity, and power isolation in mind, this project integrates embedded C programming, communication protocols, real-time motor control, and low-level hardware interfaces — showcasing practical skills in both system-level planning and embedded firmware development.
+This project demonstrates an entry-level systems and embedded software engineering design using two Raspberry Pi Picos. One Pico reads joystick input and wirelessly transmits control signals using the nRF24L01+ radio module. The second Pico receives the data and drives a four-wheel RC car using PWM-controlled motor drivers. Designed with modularity, signal integrity, and power isolation in mind, this project integrates embedded C programming, communication protocols, real-time motor control, and low-level hardware interfaces - showcasing practical skills in both system-level planning and embedded firmware development.
 
 ## System Architecture
 ### TX Side (Transmitter):
