@@ -1,44 +1,138 @@
-# RC Car with Wireless Joystick Control (In Progress)
-
-This project will demonstrate a wirelessly controlled RC car using two Raspberry Pi Picos and 2.4GHz radio communication. The goal is to create a simple, modular, and lightweight car that receives commands from a remote joystick module and moves accordingly. While hardware assembly is still in progress, all components have been researched, and the system diagram has been drafted.
-
+# RC Car – Embedded Wireless Control System
 ## Project Overview
+This project demonstrates a beginner-to-intermediate embedded systems design using two Raspberry Pi Picos. One Pico reads joystick input and wirelessly transmits control signals using the nRF24L01+ radio module. The second Pico receives the data and drives a four-wheel RC car using PWM-controlled motor drivers. Designed with modularity, signal integrity, and power isolation in mind, this project showcases key system engineering principles including communication protocols, motor control, and hardware/software integration.
 
-The system is made up of two main units:
+## System Architecture
+### TX Side (Transmitter):
 
-### 1. RC Car (Receiver Unit)
-The receiver side will be mounted onto the chassis of the RC car. It will include:
-- A Raspberry Pi Pico to interpret joystick data
-- An nRF24L01+ breakout module to receive data via 2.4GHz
-- Two DRV8833 motor drivers to independently control the left and right side wheels
-- Four TT gear motors for movement
-- Two 5V buck converters to step down from a 2S LiPo (7.4V) battery:
-  - One for powering the Pico
-  - One for powering the motor drivers
+- Raspberry Pi Pico reads joystick X/Y (12-bit ADC)
 
-### 2. Joystick Module (Transmitter Unit)
-The joystick module will be held separately by the user. It will include:
-- A second Raspberry Pi Pico to read analog values from the joystick
-- An nRF24L01+ breakout module to transmit the joystick data wirelessly
-- A joystick module with X/Y axes and a button
-- A dedicated 2S Lipo battery stepped down to 5V using a buck converter
+- Sends 4-byte payload via SPI to nRF24L01+
 
-Joystick input will be read by the transmitter Pico, sent over the air using the nRF24L01+ module, and received by the Pico on the car. Based on the values received, the car’s Pico will generate PWM signals to the DRV8833 drivers to spin the motors in the correct direction and speed.
+- Powered by 7.4V 2S LiPo → 5V buck → VSYS
 
-## System Diagram
+### RX Side (Receiver):
 
-The following diagram outlines the full system, including power flow, communication links, and signal directions:
+- Raspberry Pi Pico receives joystick values via nRF24L01+
 
-![Block Diagram](rc_car_block_diagram.drawio.png)
+- Controls four TT motors via two DRV8833 motor drivers
 
-## Status
+- Separate buck converters power logic and motor subsystems
 
-Parts have been ordered and are being prepared for initial prototyping. This repository will be updated with wiring details, code, and testing results once assembly begins.
+### Communication:
 
-## Goals
+- nRF24L01+ (SPI-based, CE pulsed to trigger TX, RX checks STATUS)
 
-- Demonstrate system-level thinking in embedded design
-- Build an RC car using simple, low-cost components
-- Apply SPI communication and PWM control in a wireless system
-- Use clean modular code structure for both transmitter and receiver
+- 4-byte payload: 2 bytes X, 2 bytes Y (scaled 12-bit ADC values)
+
+### Components
+- 2x Raspberry Pi Pico
+
+- 2x nRF24L01+ radio modules with breakout adapters
+
+- 4x TT gear motors (3–6V)
+
+- 2x DRV8833 dual H-bridge motor drivers
+
+- 2x 2S LiPo battery (7.4V nominal)
+
+- 2x Buck converters
+
+- 100µF electrolytic + 0.1µF ceramic capacitors (on both TX & RX)
+
+- Joystick module (2-axis analog + button)
+
+- 3D printed chassis (STL and SLDPRT files included)
+
+- 2x Red LED and 1x Green LED
+
+- 3x 330 ohm resistor
+
+- 2x JST Plug Connector Female
+
+- 2x 1 to 2 Splicing connectors, 2x 1 to 3 Splicing connectors
+
+- Female to male, male to male wires
+
+## Functional Requirements
+- Wireless transmission of joystick position from TX to RX
+
+- Convert X/Y position into directional motor control
+
+- Ensure proper power separation for logic vs motors
+
+- Implement neutral zone and direction-switch lockout
+
+- Maintain system stability under noisy conditions
+
+## Interface Summary
+| **Interface** | **Role** |
+| :---: | :---: |
+| SPI | nRF24L01+ communication |
+| ADC | Read joystick values |
+| GPIO | Motor control |
+| PWM | Motor speed control |
+
+
+Motor Control Logic
+PWM Wrap: 1561
+Duty cycle calculated using:
+
+c
+Copy
+Edit
+// Forward
+duty = (2000 - xvalue) / 2000.0f * 1796.0f;
+
+// Reverse
+duty = (xvalue - 2200) / (4095.0f - 2200.0f) * 1796.0f;
+Direction Table
+Action	X Range	Y Range	Motor Behavior
+Forward	< 100	Neutral	All wheels forward
+Reverse	> 4000	Neutral	All wheels reverse
+Turn Right	Neutral	< 100	Left wheels forward, right wheels reverse
+Turn Left	Neutral	> 4000	Right wheels forward, left wheels reverse
+Neutral	500–3500	500–3500	All motors stop
+
+Power Design
+TX Side: 7.4V LiPo → 5V Buck → Pico (VSYS) and nRF24L01+
+
+RX Side:
+
+Buck #1 → 5V to Pico and radio
+
+Buck #2 → 5V to DRV8833 drivers
+
+Shared ground maintained across all components
+
+Troubleshooting & Debugging
+Problem: RX Freeze During Mid-Range Joystick Input
+Occurs when X is between 2000–2200
+
+Does not occur when joystick is fully maxed or mined out (e.g., < 100 or > 4000)
+
+Suspected cause: current spike or transient noise interfering with SPI or the Pico
+
+Fixes Implemented
+Added 100µF electrolytic and 0.1µF ceramic capacitors at power lines
+
+Isolated logic and motor power rails
+
+Verified SPI timing and CE pulse behavior
+
+Reflashed firmware after identifying a missed upload
+
+Future Improvements
+Packet validation and sequence tracking
+
+Add display feedback or sensor integration
+
+Use IRQs instead of polling for RX
+
+Credits & References
+Raspberry Pi Pico SDK documentation
+
+nRF24L01+ datasheet and communication protocols
+
+DRV8833 motor driver datasheet
 
