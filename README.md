@@ -58,21 +58,6 @@ This project demonstrates an entry-level systems and embedded software engineeri
 
 ## Budget Report
 
-| Component                     | Quantity | Cost (USD) | Total |
-|------------------------------|----------|------------|-------|
-| Raspberry Pi Pico            | 2        | $4.00      | $8.00 |
-| nRF24L01+ Module + Adapter   | 2        | $3.00      | $6.00 |
-| TT Motors                    | 4        | $2.00      | $8.00 |
-| DRV8833 Motor Driver         | 2        | $2.50      | $5.00 |
-| 2S LiPo Battery              | 1        | $10.00     | $10.00 |
-| Buck Converters              | 2        | $2.00      | $4.00 |
-| Joystick Module              | 1        | $2.00      | $2.00 |
-| Capacitors (100µF + 0.1µF)   | 4 total  | $0.20      | $0.80 |
-| Misc (Perfboard, Wire, etc.)| -        | ~$5.00     | $5.00 |
-| 3D Printed Chassis (PLA)     | 1        | ~$2.00     | $2.00 |
-
-**Total Estimated Cost:** ~$50.80
-
 
 ## Block Diagram
 
