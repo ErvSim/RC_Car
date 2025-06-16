@@ -54,6 +54,13 @@ This project demonstrates an entry-level systems and embedded software engineeri
 
 - Female to male, male to male wires
 
+## Block Diagram
+
+The following diagram illustrates the full system architecture, including the transmitter (joystick module) and receiver (RC car):
+
+![RC Car Block Diagram](https://github.com/user-attachments/assets/c1271378-2d14-41d3-b2f8-7e34a096a80f)
+*Figure: System-level block diagram showing data flow, power paths, and communication interfaces.*
+
 ## Functional Requirements
 - Wireless transmission of joystick position from TX to RX
 
