@@ -60,8 +60,49 @@ This project demonstrates an entry-level systems and embedded software engineeri
 
 - 4x M3 x 6mm screws
 
+- 4x M3 x 16mm screws
+
+- Pin headers
+
 ## Budget Report
 
+| Component                             | Qty Used | Qty Bought | Cost Paid | Cost Used |
+|--------------------------------------|----------|-------------|-----------|-----------|
+| Raspberry Pi Pico                    | 2        | 2           | $14.00    | $14.00    |
+| nRF24L01+ Modules                    | 2        | 4           | $7.89     | $3.95     |
+| nRF24L01+ Breakout Boards            | 2        | 4           | $7.99     | $4.00     |
+| DRV8833 Motor Drivers                | 2        | 5           | $8.59     | $3.44     |
+| 2S LiPo Batteries (2pack) + Charger  | 1        | 1           | $24.99    | $24.99    |
+| TT Motors + Wheels (4-Pack)          | 4        | 4           | $8.99     | $8.99     |
+| JST Female Connectors (20AWG)        | 2        | 20          | $7.19     | $0.72     |
+| M3 Screws/Nuts/Washers (2240 pcs)    | 14       | 2240        | $24.99    | $0.16     |
+| M2 Screws (1140 pcs)                 | 10       | 1140        | $6.98     | $0.06     |
+| 100µF + 0.1µF Capacitors             | 4        | -           | $0.00***     | $0.00  |
+| Joystick Module                      | 1        | -           | $0.00*    | $0.00     |
+| 3D Printed Chassis                   | 1        | -           | $0.00**   | $0.00     |
+| LEDs + Resistors                     | 4        | -           | $0.00***     | $0.00  |
+| Splicing Connectors (1→2, 1→3)       | 4        | 26          | $14.98    | $2.30     |
+| Perfboards (70x90, 20x80 x2)         | 3        | 32          | $6.29     | $0.59     |
+| Dupont Wires (F-F, M-M)              | 18       | 120         | $6.98     | $1.05     |
+
+**Total Spent:** $139.86  
+**Total Used Value in Build:** ~$64.25
+
+\* Donated by a friend; found online for ~$6.29  
+\** Printed for free at CSUN using university resources (PLA)
+\*** Already had
+
+## Equipment Report
+
+| Equipment                                    | Qty Bought | Qty Used | Cost Paid | Cost Used |
+|---------------------------------------------|------------|----------|-----------|-----------|
+| No-Clean Soldering Flux Paste (2-pack, 10CC each) | 1          | 1        | $9.99     | ~$1.50    |
+| Fanttik Soldering Iron Kit                  | 1          | 1        | $56.20    | $56.20    |
+| Kotto Fume Extractor + Helping Hands        | 1          | 1        | $49.99    | $49.99    |
+| 63/37 Solder Wire (100g, 0.6mm)             | 1          | 1        | $7.99     | ~$2.00    |
+
+**Total Spent on Equipment:** $124.17  
+**Estimated Value Used:** ~$109.69
 
 ## Block Diagram
 
