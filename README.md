@@ -89,7 +89,7 @@ This project demonstrates an entry-level systems and embedded software engineeri
 **Total Used Value in Build:** ~$64.25
 
 \* Donated by a friend; found online for ~$6.29  
-\** Printed for free at CSUN using university resources (PLA)
+\** Printed for free at CSUN using university resources (PLA)  
 \*** Already had
 
 ## Equipment Report
