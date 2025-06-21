@@ -195,3 +195,5 @@ Problem: RX/TX will ACK only about 3/10 trys and locks out for a couple seconds
 - Raspberry Pi Pico SDK documentation
 
 - nRF24L01+ datasheet and communication protocols
+
+*Special thank you to CSUN's Creator Maker Studio for allowing me to use their services free of charge, this project would have not been possible to complete without their help*
