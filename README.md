@@ -62,6 +62,8 @@ This project demonstrates an entry-level systems and embedded software engineeri
 
 - 4x M3 x 16mm screws
 
+- 6x M3 x 30mm screws
+
 - Pin headers
 
 ## Budget Report
@@ -189,7 +191,14 @@ Problem: RX/TX will ACK only about 3/10 trys and locks out for a couple seconds
 
 - Use IRQs instead of polling for RX
 
-- Add Ultrasonic sensor for emergency stops 
+- Add Ultrasonic sensor for emergency stops
+
+## Final Outcome   
+![IMG_0824](https://github.com/user-attachments/assets/67a352bc-edb3-443e-88b5-43f37788e64c)
+![IMG_0825](https://github.com/user-attachments/assets/c99b8c46-d7ae-4c15-add2-dd56e45bde64)
+![IMG_0826](https://github.com/user-attachments/assets/3c8a57c5-8fa1-452b-82aa-b23e469c46cb)
+![IMG_0827](https://github.com/user-attachments/assets/87de3be6-0aac-4e59-8e75-88b9533cf88d)
+![IMG_0828](https://github.com/user-attachments/assets/4f6e6a28-f22b-4658-a68b-a7ad3f0dfef9)
 
 ## Credits & References
 - Raspberry Pi Pico SDK documentation
